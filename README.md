@@ -63,8 +63,11 @@
 FaultData:
 33e1a6...  # 基线轨迹
 ...
-# Last round key found: [0x3a, 0x7f, ..., 0xc2]
+# Last round key found: XXXXX
+Find AES First Key: XXXXX
 ```
+
+![image-20250624175629972](README/image-20250624175629972.png)
 
 ## 高级配置
 
@@ -75,5 +78,4 @@ FaultData:
 
 * **表读取失败**：若出现 `Failed to read TBox at 0x...`，请检查地址是否正确以及模块是否已加载。
 * **模块导入错误**：确保 `WBModule` 与插件同目录，且 `sys.path` 已包含该路径。
-
 

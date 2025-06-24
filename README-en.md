@@ -66,7 +66,10 @@ FaultData:
 33e1a6...  # baseline trace
 ...
 # Last round key found: [0x3a, 0x7f, ..., 0xc2]
+Find AES First Key: XXXXX
 ```
+
+![image-20250624175651494](README-en/image-20250624175651494.png)
 
 ## Advanced Configuration
 

@@ -198,7 +198,9 @@ class WhiteboxPlugin(idaapi.plugin_t):
         # 调用封装函数，获取最后一轮密钥
         last_round_key = crack_from_traces(traces, filename='tracefile.txt')
         idaapi.msg(f"# Last round key found: {last_round_key}\n")
-
+        scheduler = AESKeySchedule(last_round_key, 10)
+        keys = scheduler.derive()
+        idaapi.msg(f"Find AES First Key: {keys[0]}\n")
     def term(self):
         idaapi.msg("[WhiteboxAES] terminated\n")
 
