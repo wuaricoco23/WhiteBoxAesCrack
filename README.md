@@ -44,8 +44,12 @@
 3. 在弹出的表单中填写：
 
    * **TBox Base**：16×256 字节 TBox 表的基址（仅限直接模式）。
+
    * **TYiBox Base**：9×16×256×4 字节 TYiBox 表的基址（仅限直接模式）。
+
    * **3D TBox Base**：10×16×256 字节 3D TBox 表的基址（仅限表生成模式）。
+
+     ![image-20250624180244715](README/image-20250624180244715.png)
 
 4. 若使用表生成模式，仅填写 **3D TBox Base** 并留空 **TYiBox Base**；若使用直接模式，则同时填写 **TBox Base** 和 **TYiBox Base**。
 

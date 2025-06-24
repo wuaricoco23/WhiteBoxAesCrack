@@ -47,7 +47,7 @@ This plugin enables you to perform fault injection and key recovery on Whitebox 
    * **TYiBox Base**: Address of the 9×16×256×4 byte TYiBox table (Direct Mode only).
    * **3D TBox Base**: Address of the 10×16×256 byte 3D TBox base (GenTYI Mode).
 
-
+![image-20250624180255439](README-en/image-20250624180255439.png)
 
 4. Leave **TYiBox Base** blank and specify **3D TBox Base** to use GenTYI Mode. Otherwise, fill both TBox and TYiBox for Direct Mode.
 
