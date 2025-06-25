@@ -185,6 +185,7 @@ class WhiteboxPlugin(idaapi.plugin_t):
                 return
         except ValueError as e:
             idaapi.warning(str(e))
+
             return
 
         # 收集所有 trace
