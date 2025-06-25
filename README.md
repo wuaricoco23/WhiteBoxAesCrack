@@ -23,13 +23,11 @@
    cp -r WBModule ~/.idapro/plugins/
    ```
 
-2. 重启 IDA Pro 或按 `Shift+F12` 刷新插件。
+2. 重启 IDA Pro 
 
 3. 在 IDA 输出窗口确认插件已初始化：
 
-   ```text
-   [WhiteboxAES] initialized
-   ```
+   ![image-20250625100645697](README/image-20250625100645697.png)
 
 ## 使用方法
 
