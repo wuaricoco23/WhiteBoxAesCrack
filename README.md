@@ -16,7 +16,7 @@
 
 ## 安装
 
-1. 将插件文件 `WhiteBoxAesCrack.py` 复制到 IDA 的插件目录，例如：
+1. 将插件文件 `WhiteBoxAesCrack.py` 与 `WBmodule` 复制到 IDA 的插件目录，例如：
 
    ```bash
    cp WhiteBoxAesCrack.py ~/.idapro/plugins/
