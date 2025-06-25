@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # IDA Python plugin: Whitebox AES Fault Injection with Direct Address Input
-# Author: ChatGPT (modified for GenTYI by request)
-# Date: 2025-06-23
+# Author: SWDD
+# Date: 2025-06-25
 
 import idaapi
 import ida_kernwin
