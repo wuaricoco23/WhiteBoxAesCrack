@@ -174,12 +174,15 @@ class WhiteboxPlugin(idaapi.plugin_t):
         base3d = form.tbox3d.value
         form.Free()
         try:
-            if ybase != 0:
+            if ybase != 0 and tbase != 0:
                 tbox, tyibox = load_tables_direct(tbase, ybase)
                 idaapi.msg("[*] Using Direct Mode\n")
-            else:
+            elif base3d != 0:
                 tbox, tyibox = build_tyibox_from_3d(base3d)
                 idaapi.msg("[*] Using GenTYI Mode from 3D TBox\n")
+            else:
+                idaapi.msg("[*]User Canceled\n")
+                return
         except ValueError as e:
             idaapi.warning(str(e))
             return
@@ -197,10 +200,13 @@ class WhiteboxPlugin(idaapi.plugin_t):
 
         # 调用封装函数，获取最后一轮密钥
         last_round_key = crack_from_traces(traces, filename='tracefile.txt')
-        idaapi.msg(f"# Last round key found: {last_round_key}\n")
-        scheduler = AESKeySchedule(last_round_key, 10)
-        keys = scheduler.derive()
-        idaapi.msg(f"Find AES First Key: {keys[0]}\n")
+        if last_round_key is not None:
+            idaapi.msg(f"# Last round key found: {last_round_key}\n")
+            scheduler = AESKeySchedule(last_round_key, 10)
+            keys = scheduler.derive()
+            idaapi.msg(f"Find AES key: {keys[0]}\n")
+        else:
+            idaapi.msg(f"The last_round_key is None,Please Check!\n")
     def term(self):
         idaapi.msg("[WhiteboxAES] terminated\n")
 

@@ -8,7 +8,6 @@ print(last_round_key)
 
 from WBModule.GetAllKey import AESKeySchedule
 
-# C 程序输出的 round10 key
 last_round = "400D59138E5C1E1A65598EC3A842D3CA"
 scheduler = AESKeySchedule(last_round, 10)
 keys = scheduler.derive()

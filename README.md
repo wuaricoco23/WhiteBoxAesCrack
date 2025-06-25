@@ -8,15 +8,11 @@
 ## 功能特性
 
 * 自动生成并注入故障的 AES 加密轨迹。
-* 集成 `WBModule.getRoundKey.crack_from_traces` 以恢复最后一轮密钥。
 * 支持直接输入表格和即时生成 TYiBox 两种方式。
-* 可配置差分故障分析（DFA）攻击的故障字节索引。
 
 ## 前提条件
 
 1. **IDA Pro**：已在 IDA Pro 7.7 及以上版本测试通过。
-2. **Python**：IDA 嵌入式 Python 解释器（>= 3.7）。
-3. **WBModule**：确保与本插件文件同目录下存在 `WBModule` 文件夹（包含 `getRoundKey.py` 和 `GetAllKey.py`）。
 
 ## 安装
 
@@ -59,6 +55,7 @@
    * 生成一条无故障轨迹以及 16 条按字节注入故障的轨迹。
    * 在 IDA 输出窗口打印每条轨迹的十六进制字符串。
    * 调用 DFA 分析，恢复最后一轮密钥并打印结果。
+   * 调用进行AESKeySchedule恢复第一轮密钥也就是初始密钥
 
 ## 示例输出
 
